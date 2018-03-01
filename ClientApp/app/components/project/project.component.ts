@@ -13,7 +13,7 @@ export class ProjectComponent {
     project: Project;
     blankProjectTask: ProjectTask;
 
-    constructor() {
+    constructor(private route: ActivatedRoute) {
         // todo
         this.project = {
             Name: '',
@@ -22,5 +22,23 @@ export class ProjectComponent {
             ProjectTasks: [],
             ProjectRoles: []
         }
+    }
+
+    private ngOnInit() {
+        this.route.params.subscribe(params => {
+            let id = +params['id']; // (+) converts string 'id' to a number
+
+            TimeTrackerService.getProject(id).then(response => {
+                this.project = response.data;
+                //alert(this.project.Name);
+
+                //this.name = response.data.Name;
+                //this.projectTasks = response.data.ProjectTasks;
+                //debugger;
+            }).catch(error => {
+                debugger;
+            });
+
+        });
     }
 }

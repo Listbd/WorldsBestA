@@ -32,6 +32,7 @@ import { ProjectComponent } from './components/project/project.component';
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },
             { path: 'projects', component: ProjectsComponent },
+            { path: 'project/:id', component: ProjectComponent },
             { path: '**', redirectTo: 'home' }
         ])
     ]
