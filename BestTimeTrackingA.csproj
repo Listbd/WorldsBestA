@@ -22,12 +22,14 @@
 
   <ItemGroup>
     <None Remove="ClientApp\app\components\projects\projects.component.ts" />
+    <None Remove="ClientApp\app\components\project\project.component.ts" />
     <None Remove="ClientApp\app\interfaces\project.ts" />
     <None Remove="ClientApp\app\timeTrackerService.ts" />
   </ItemGroup>
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\app\components\projects\projects.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\project\project.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\interfaces\project.ts" />
     <TypeScriptCompile Include="ClientApp\app\timeTrackerService.ts" />
   </ItemGroup>

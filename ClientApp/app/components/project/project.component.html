@@ -1,0 +1,37 @@
+﻿<h1>Project <span style="color:brown; font-weight:bold">{{project.Name}}</span></h1>
+<div class="form-group" v-if="project.ExternalSystemKey">
+    <label>&nbsp;External Key:</label> {{project.ExternalSystemKey}}
+    <hr />
+</div>
+<h2>Tasks</h2>
+<!--<table class="table">
+    <thead>
+        <tr>
+            <th>Task Name</th>
+            <th>External Key</th>
+            <th>Billable?</th>
+            <th>Require Comment?</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngIf="project.ProjectTasks.length" v-for="task in project.ProjectTasks">
+            <td>{{task.Name}}</td>
+            <td>{{task.ExternalSystemKey}}</td>
+            <td>{{task.Billable}}</td>
+            <td>{{task.RequireComment}}</td>
+            <td align="center">
+                <button type="button" class="btn btn-danger" v-on:click="deleteTask(task, $event)">
+                    Delete
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <td><input class="form-control" v-model="blankProjectTask.Name" /></td>
+            <td><input class="form-control" v-model="blankProjectTask.ExternalSystemKey" /></td>
+            <td><input type="checkbox" v-model="blankProjectTask.Billable" /></td>
+            <td><input type="checkbox" v-model="blankProjectTask.RequireComment" /></td>
+            <td align="center"><button type="button" class="btn btn-success" @click="addTask()">Add</button></td>
+        </tr>
+    </tbody>-->
+</table>

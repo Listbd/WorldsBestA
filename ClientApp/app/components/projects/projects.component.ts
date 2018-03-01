@@ -1,8 +1,8 @@
 ﻿import { Component, Inject } from '@angular/core';
-import { Http } from '@angular/http';
-import axios from 'axios';
+//import { Http } from '@angular/http';
 import { Project } from '../../interfaces/project';
 import { TimeTrackerService } from '../../timeTrackerService';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'projects',
@@ -12,7 +12,7 @@ export class ProjectsComponent {
     public projects: Project[];
     public blankProject: Project;
 
-    constructor(http: Http, @Inject('BASE_URL') baseUrl: string) {
+    constructor(/*http: Http, @Inject('BASE_URL') baseUrl: string*/ private router: Router) {
 
         TimeTrackerService.getProjects().then(response => {
             this.projects = response.data;
@@ -67,6 +67,7 @@ export class ProjectsComponent {
         //alert(project.Name);
         //this.$router.push({ name: 'project', params: { id: `${project.ProjectId}` } });
         //this.$router.push(`project/${project.ProjectId}`);
+        this.router.navigate(['/project', project.ProjectId]);
         debugger;
     }
 

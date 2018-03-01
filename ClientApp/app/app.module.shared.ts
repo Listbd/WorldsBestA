@@ -10,6 +10,7 @@ import { HomeComponent } from './components/home/home.component';
 import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { ProjectsComponent } from './components/projects/projects.component';
+import { ProjectComponent } from './components/project/project.component';
 
 @NgModule({
     declarations: [
@@ -18,7 +19,8 @@ import { ProjectsComponent } from './components/projects/projects.component';
         CounterComponent,
         FetchDataComponent,
         HomeComponent,
-        ProjectsComponent
+        ProjectsComponent,
+        ProjectComponent
     ],
     imports: [
         CommonModule,
