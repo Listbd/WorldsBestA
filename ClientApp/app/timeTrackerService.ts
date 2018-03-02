@@ -6,6 +6,25 @@ import { ProjectRole } from "./interfaces/projectRole";
 
 // TODO - this feels like a poor man's service implementation
 
+//import { Injectable } from '@angular/core';
+//@Injectable()
+//export class TTService {
+//    constructor() {
+//
+//    }
+//
+//    getProjects(): Project[] {
+//        let projects: any = null;
+//        TimeTrackerService.getProjects().then(response => {
+//            projects = return response.data;
+//        }).catch(error => {
+//            return new Project[];
+//        });
+//        
+//    }
+//}
+
+
 export abstract class TimeTrackerService {
     //static url: string = 'https://b-timeback.azurewebsites.net/api/';
     static apiUrl: string = 'http://localhost:57214/api/';
