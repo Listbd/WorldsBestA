@@ -12,6 +12,8 @@ import { CounterComponent } from './components/counter/counter.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { ProjectComponent } from './components/project/project.component';
 
+import { TTService } from './timeTrackerService';
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -35,6 +37,10 @@ import { ProjectComponent } from './components/project/project.component';
             { path: 'project/:id', component: ProjectComponent },
             { path: '**', redirectTo: 'home' }
         ])
+    ]
+    ,
+    providers: [
+        TTService
     ]
 })
 export class AppModuleShared {
