@@ -1,4 +1,6 @@
-﻿import axios from 'axios';
+﻿//import axios from 'axios';
+import { Inject } from '@angular/core';
+import { Http } from '@angular/http';
 import { Project } from './interfaces/project';
 import { ProjectTask } from './interfaces/projectTask';
 import { TimeEntry } from "./interfaces/timeEntry";
@@ -12,11 +14,12 @@ export class TTService {
     //static url: string = 'https://b-timeback.azurewebsites.net/api/';
     static apiUrl: string = 'http://localhost:57214/api/';
 
-    constructor() {
+    constructor(private http: Http, @Inject('BASE_URL') baseUrl: string) {
         // [SEED IT] if (typeof window !== 'undefined') localStorage.setItem('hackauth2', btoa(`test:test`));
+        alert(baseUrl);
     }
 
-    async getProjects(): Promise<Project[]> {
+    getProjects(): Project[] {
         // I don't totally get this, but localStorage is undefined if window is undefined;
         // and window is undefined b/c there is some server side rending happening for
         // efficiency? So, I guess it will run this code on the server side at some point
@@ -28,14 +31,14 @@ export class TTService {
         console.log('but this will');
         let url = TTService.apiUrl + 'projects';
 
-        try {
-            let response = await axios.get(url, { headers: this.getHeaders() });
-            return <Project[]>response.data;
-        }
-        catch (error) {
+        this.http.get(url, { headers: this.getHeaders() }).subscribe(result => {
+            return result.json() as Project[];
+        }, error => {
             // todo - toast?
+            // todo - throw and catch in caller?
             return [];
-        }
+        });
+        return [];
     }
 
     async addProject(project: Project): Promise<Project | null> {

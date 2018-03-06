@@ -16,9 +16,7 @@ export class ProjectsComponent {
         private _router: Router, private _ttService: TTService
     ) {
 
-        _ttService.getProjects().then(data => {
-            this.projects = data;
-        });
+        this.projects = _ttService.getProjects();
         
 
         //TimeTrackerService.getProjects().then(response => {
